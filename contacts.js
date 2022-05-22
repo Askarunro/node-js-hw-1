@@ -1,5 +1,6 @@
 const fs = require("fs").promises;
 const path = require("path");
+
 const contactsPath = path.resolve("./db/contacts.json");
 
 async function listContacts() {
@@ -23,6 +24,7 @@ async function removeContact(contactId) {
   );
   if (indexContactId !== -1) {
     allContacts.splice(indexContactId, 1);
+    console.table(allContacts)
   }
   return fs.writeFile(contactsPath, JSON.stringify(allContacts));
 }
@@ -31,6 +33,7 @@ async function addContact(name, email, phone) {
   const allContacts = await listContacts();
   const newContact = { id: `${allContacts.length + 1}`, name, email, phone };
   await allContacts.push(newContact);
+  console.table(allContacts)
   return fs.writeFile(contactsPath, JSON.stringify(allContacts));
 }
 

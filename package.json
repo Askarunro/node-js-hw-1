@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Askarunro/node-js-hw-1#readme",
   "devDependencies": {
+    "commander": "^9.2.0",
     "nodemon": "^2.0.16"
   }
 }
